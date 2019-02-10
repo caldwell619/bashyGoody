@@ -18,18 +18,25 @@ function gitlog() {
     git log --reverse --author="`git config user.name`" --format="%h (%s)" --since="`date -v-${HOURS}H`"
 }
 
-# bash command aliases
-alias cls="clear"
-alias ls="ls -la"
+# Global
+echo "Skynet is Active"
 
-# directory shortcut aliases
-alias projects="cd ~/projects/"
-alias captix="cd ~/projects/grok/sites/captix.dev"
-alias blog="cd ~/projects/bloggyBlog/"
+# DB wiring
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/Users/chriscaldwell/mongodb"/bin:$PATH
+
+# project shorcuts
+alias activate-skynet="npm run dev"
+alias pound-the-alarm="npm start"
+alias apple="react-native run-ios"
+alias bash="subl .bash_profile"
+alias armada="cd ~/IdeaProjects/armada-builder-react/"
 
 # git shortcuts
+alias ga="git add ."
 alias gs="git status"
 alias gc="git commit -v"
+alias gp="git push"
 
 # artisan generate shortcuts
 alias g:m="php artisan generate:model"
@@ -42,5 +49,5 @@ alias g:r="php artisan generate:resource"
 # source in bash git syntax aware colors into bash profile
 source ~/.bash_git_autocomplete
 source ~/.bash_git_prompt
-export PS1='$(__git_ps1 "(%s)") > '
+export PS1='(__git_ps1 "(%s)") > >>'
 source ~/.bash_git_syntax_aware
