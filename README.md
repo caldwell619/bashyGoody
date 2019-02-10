@@ -5,8 +5,8 @@ This is a repo for storing bash settings
 - git branch displayed if inside a repository
 - ex: `{master} ~/IdeaProjects/foler-name/`
 - color displays git status.
--- Green: clean branch, committed work
--- Red: uncommited work
+    - Green: clean branch, committed work
+    - Red: uncommited work
 
 ## Installing:
 - clone the repo into a subfolder outside of root
