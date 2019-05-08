@@ -1,3 +1,5 @@
+echo "Skynet is active"
+
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
@@ -18,29 +20,26 @@ function gitlog() {
     git log --reverse --author="`git config user.name`" --format="%h (%s)" --since="`date -v-${HOURS}H`"
 }
 
-# bash command aliases
-alias cls="clear"
-alias ls="ls -la"
-
-# directory shortcut aliases
-alias projects="cd ~/projects/"
-alias captix="cd ~/projects/grok/sites/captix.dev"
-alias blog="cd ~/projects/bloggyBlog/"
+# accessing the bash
+alias bash="sublime ~/.bash_profile"
 
 # git shortcuts
 alias gs="git status"
+alias ga="git add ."
 alias gc="git commit -v"
+alias gp="git push"
 
-# artisan generate shortcuts
-alias g:m="php artisan generate:model"
-alias g:c="php artisan generate:controller"
-alias g:v="php artisan generate:view"
-alias g:s="php artisan generate:seed"
-alias g:mig="php artisan generate:migration"
-alias g:r="php artisan generate:resource"
+# JS
+alias activate-skynet="npm run serve"
+alias v-start="npm run serve"
 
 # source in bash git syntax aware colors into bash profile
 source ~/.bash_git_autocomplete
 source ~/.bash_git_prompt
-export PS1='$(__git_ps1 "(%s)") > '
+export PS1=' >>(__git_ps1 "(%s)") > '
 source ~/.bash_git_syntax_aware
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
