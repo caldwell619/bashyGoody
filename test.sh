@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
 
-function yes_no(){
-	if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    return 1
-fi
-}
+curl -s https://s3.amazonaws.com/installation-script/installation.sh | sudo bash
 
-read -p "Hello>? [y/n]" 
-yes_no
-echo $?

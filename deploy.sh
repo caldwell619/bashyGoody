@@ -1,0 +1,1 @@
+aws s3 sync ./test/ "s3://installation-script"
