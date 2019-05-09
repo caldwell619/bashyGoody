@@ -1,1 +1,1 @@
-aws s3 sync ./test/ "s3://installation-script"
+aws s3 sync ./installation/ "s3://installation-script"

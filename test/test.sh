@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-echo "AMAZON!"
+
+curl -sf -L https://s3.amazonaws.com/installation-script/installation.sh -o installation.sh
+sudo sh ./installation.sh

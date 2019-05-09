@@ -9,18 +9,19 @@ fi
 }
 
 # Script for installing all of the necessary software
-printf "\nBeginning installations...\n\n"
+printf "\nBeginning installations..."
 
 # HomeBrew
-printf "Installing HomeBrew \n\n ... \n\n"
+printf "\n\nInstalling HomeBrew \n\n ..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Node Version Manager
 printf "\n Installing Node Version Manager \n \n ... \n"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
-
+echo
 # Refreshing the bash
 source ~/.bash_profile
+echo
 
 # Sourcing the file to allow usage
 . ~/.nvm/nvm.sh
@@ -34,45 +35,44 @@ else
 fi
 
 # NodeJS
-printf "\n Installing Node v8.10 \n \n ... \n"
+printf "\n\n Installing Node v8.10 \n\n ..."
+printf "\n"
 nvm install 8.10
 
 
 # AWS CLI
-printf "\n\n Installing the AWS CLI \n\n ... \n\n"
-printf "\n While this is running, ensure you have your AWS Access Key ID and AWS Secret Access Key ready to go. \n\n"
-brew install awscli
+printf "\n\nEnter your username -> "
+read username
+printf "\n\nInstalling the AWS CLI \n\n ..."
+printf "\n\nWhile this is running, ensure you have your AWS Access Key ID and AWS Secret Access Key ready to go. \n\n"
 
+sudo -u $username brew install awscli
 
 # Configure AWS CLI
 printf "\n Configuring the AWS CLI \n\n"
 aws configure
 
-# GitHub SSH Key Gen
-
-# Asking for confirmation
-
-yes_no
-
-if [ $? == 0 ]
-then 
-	printf "\nOkay, beginning the wiring to GitHub..\n\n"
-	printf "Generating a new SSH key.. \n\n"
-	read -p "What is the email you want to associate with the key? ->  " email
-	printf "\n\nWhen you're prompted to 'Enter a file in which to save the key,' press Enter. This accepts the default file location.\n\n"
-	ssh-keygen -t rsa -b 4096 -C "$email"
-	echo
-	printf "\n Copying the SSH to your clipboard.. \n\n"
-	pbcopy < ~/.ssh/id_rsa.pub
-	printf "\nDone!\n"
-else 
-	printf "\nOkay, we can skip that part. \n"
-fi
 
 # Vue
 printf "\nInstalling Vue CLI\n\n"
 
 npm install -g @vue/cli
+
+
+# GitHub SSH Key Gen
+
+# Asking for confirmation
+printf "\n\nThis is the last step and is optional. \nPress control+C to exit the script"
+printf "\n\nThis step wires the computer to your github account.."
+printf "\n\nGenerating a new SSH key.. \n\n"
+read -p "\nWhat is the email you want to associate with the key? ->  " email
+printf "\n\nWhen you're prompted to 'Enter a file in which to save the key,' press Enter. This accepts the default file location.\n\n"
+ssh-keygen -t rsa -b 4096 -C $email
+echo
+printf "\n Copying the SSH to your clipboard.. \n\n"
+pbcopy < ~/.ssh/id_rsa.pub
+printf "\nDone!\nThe SSH key is copied to the clipboard"
+
 
 
 
