@@ -1,6 +1,5 @@
 echo "Skynet is active"
 
-
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
@@ -20,18 +19,17 @@ function gitlog() {
     git log --reverse --author="`git config user.name`" --format="%h (%s)" --since="`date -v-${HOURS}H`"
 }
 
-# Committing function
-function gc(){
-	git commit -m '$1'
-}
-
 # accessing the bash
-alias bash="subl ~/.bash_profile"
+alias edit-bash="subl ~/.bash_profile"
+
+# Checking temp
+alias temp="~/Documents/osx-cpu-temp/osx-cpu-temp"
 
 # git shortcuts
 alias gs="git status"
 alias ga="git add ."
 alias gp="git push"
+alias gc="git commit -c"
 
 # JS
 alias activate-skynet="npm run serve"
@@ -42,11 +40,6 @@ source ~/.bash_git_autocomplete
 source ~/.bash_git_prompt
 export PS1=' >>(__git_ps1 "(%s)") > '
 source ~/.bash_git_syntax_aware
-
-# Default Editor
-export EDITOR="subl"
-
-# Setting PATH for Python 3.7
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
-export PATH
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

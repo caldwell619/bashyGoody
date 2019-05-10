@@ -2,23 +2,22 @@
 
 # Defining helper function
 function yes_no(){
-	if [[ ! $REPLY =~ ^[Yy]$ ]]
+	if [[ ! $1 =~ ^[Yy]$ ]]
 then
     return 1 # handle exits from shell or function but don't exit interactive shell
 fi
 }
-
-
 
 # Script for installing all of the necessary software
 printf "\nBeginning installations..."
 
 # HomeBrew
 printf "\n\nInstalling HomeBrew \n\n ..."
+printf "\n\n"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Node Version Manager
-printf "\n Installing Node Version Manager \n \n ... \n"
+printf "\n\n Installing Node Version Manager \n \n ... \n"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
 echo
 # Refreshing the bash
@@ -42,27 +41,37 @@ printf "\n"
 nvm install 8.10
 
 # Vue
-printf "\nInstalling Vue CLI\n\n"
+printf "\nInstalling Vue CLI"
+printf "\n\n"
 npm install -g @vue/cli
 
-# AWS CLI
+# AWS and SAM CLI
 printf "\n\nEnter your local machine username -> "
 read username
-printf "\n\nInstalling the AWS CLI \n\n ..."
+printf "\n\nInstalling the AWS and SAM CLI \n\n ..."
 printf "\n\nWhile this is running, ensure you have your AWS Access Key ID and AWS Secret Access Key ready to go. \n\n"
-sudo -u $username brew install awscli
-
-
-######### Optional Configurations ##########
+sudo -u $username brew tap aws/tap
+sudo -u $username brew install awscli aws-sam-cli
 
 # Configure AWS CLI
-printf "\n Configuring the AWS CLI \n\n"
+printf "\n Configuring the AWS CLI"
+printf "\n\n"
 aws configure
+
+######### Optional Configurations ##########
 
 # GitHub SSH Key Gen
 
 # Asking for confirmation
-printf "\n\nThis is the last step and is optional. \nPress control+C to exit the script"
+printf "\n\nThis is the last step and is optional. \nIt will generate and copy an ssh key to your clipboard.\n\nDo you want to continue? [y/n] -> "
+read githubAnswer
+
+yes_no $githubAnswer
+
+if [ $? == 0]
+then 
+
+# Generating the SSH Key
 printf "\n\nThis step wires the computer to your github account.."
 printf "\n\nGenerating a new SSH key.. \n\n"
 read -p "\nWhat is the email you want to associate with the key? ->  " email
@@ -73,6 +82,11 @@ printf "\n Copying the SSH to your clipboard.. \n\n"
 pbcopy < ~/.ssh/id_rsa.pub
 printf "\nDone!\nThe SSH key is copied to the clipboard"
 open https://github.com/settings/keys
+
+else 
+	printf "\n\nAlright, be that way. All done!"
+	exit 0
+fi
 
 
 
