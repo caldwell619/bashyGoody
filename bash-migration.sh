@@ -63,9 +63,11 @@ printf "\n\nOkay, working..."
 printf "\n\n"
 if [ $sublAnswer == "1"]
 then
+  subCommand="subl"
   ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
   printf "\n\nDone! You can now use subl `FILENAME` to open the file in Sublime"
 else 
+  subCommand="sublime"
   ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
   printf "\n\nDone! You can now use sublime `FILENAME` to open the file in Sublime"
 fi
@@ -102,8 +104,30 @@ then
   printf "\n\nOkay, creating symlink.\n\nUse `$vsCommand FILENAME` to open the file in VS Code"
   sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/$vsCommand
 else
+  vsCommand="code"
   printf "\n\nOkay, creating symlink.\n\nUse `code FILENAME` to open the file in VS Code"
   sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
 fi
 
 printf "\n\nDone!"
+
+# Setting default editor
+
+printf "\n\nDo you want to set a default editor? [y/n] -> "
+read defaultEditorAnswer
+
+if [ $defaultEditorAnswer == "y" ]
+then
+  printf "\n\nSublime or VS Code? [1/2] -> "
+  read defaultEditor
+  if [ $defaultEditor == "1" ]
+  then
+    export EDITOR=$subCommand
+  else 
+    export EDITOR=$vsCommand
+  fi
+else 
+printf "\n\nNo problem.\n\nUse\n\nexport EDITOR='SYMLINK_NAME'\n\nto add it later"
+fi 
+
+

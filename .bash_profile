@@ -22,9 +22,6 @@ function gitlog() {
 # accessing the bash
 alias edit-bash="subl ~/.bash_profile"
 
-# Checking temp
-alias temp="~/Documents/osx-cpu-temp/osx-cpu-temp"
-
 # git shortcuts
 alias gs="git status"
 alias ga="git add ."
@@ -34,6 +31,8 @@ alias gc="git commit -c"
 # JS
 alias activate-skynet="npm run serve"
 
+# Default Editor
+export EDITOR="code"
 
 # source in bash git syntax aware colors into bash profile
 source ~/.bash_git_autocomplete
