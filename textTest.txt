@@ -1,3 +1,0 @@
-The really really child text
-
-cat textTest.txt >> ~/testTest.txt
