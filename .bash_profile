@@ -33,7 +33,7 @@ alias gc="git commit -c"
 
 # JS
 alias activate-skynet="npm run serve"
-alias v-start="npm run serve"
+
 
 # source in bash git syntax aware colors into bash profile
 source ~/.bash_git_autocomplete

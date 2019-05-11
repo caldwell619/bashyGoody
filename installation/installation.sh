@@ -54,17 +54,14 @@ then
 	printf "\n\n"
 	npm install -g @vue/cli
 else
-	printf "\n\nOkay, skipping Vue"
+	printf "\nOkay, skipping Vue"
 
 fi
-
-
-
 
 # AWS and SAM CLI
 printf "\n\nThe following is the logged in user."
 printf "\n\n"
-whoami
+logname
 printf "\n\nInstalling the AWS and SAM CLI \n\n ..."
 printf "\n\nEnter the local machine username that you wish the AWS CLI to be associated with -> "
 read username
@@ -88,7 +85,7 @@ read githubAnswer
 
 yes_no $githubAnswer
 
-if [ $? == 0]
+if [ $? == 0 ]
 then 
 
 # Generating the SSH Key
@@ -105,7 +102,6 @@ open https://github.com/settings/keys
 
 else 
 	printf "\n\nAlright, be that way. Moving on!"
-	exit 0
 fi
 
 
@@ -129,6 +125,7 @@ fi
 
 
 printf "\n\nAll done!"
+printf "\n"
 exit 0
 
 

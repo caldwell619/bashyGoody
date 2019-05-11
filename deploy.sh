@@ -1,1 +1,1 @@
-aws s3 sync ./installation/ "s3://installation-script"
+aws s3 cp ./installation/installation.sh "s3://installation-script"
