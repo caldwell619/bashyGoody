@@ -6,6 +6,16 @@ This repository stores settings for local setups and contains a setup script to 
 
 This `bash-migration` script adds several convenient short cuts as well as a syntax aware prompt.
 
+## Migrating Bash
+The `bash-migration` script will add the following files to root:
+- `.bash_git_autocomplete`
+- `.bash_git_prompt`
+- `.bash_git_syntax_aware`
+
+These files allow for the features below
+
+It will prompt you to see if you'd like to overwrite your bash, or append to the end. If you have previous configurations, append. If it's a new computer with no configurations, overwriting is fine.
+
 ## Syntax Highlighting
 
 - The prompt will be `>>` when not in a git repository.
@@ -27,6 +37,7 @@ This `bash-migration` script adds several convenient short cuts as well as a syn
 
 - `edit-bash`
   - Opens the `bash_profile` in Sublime
+  - If you appended the settings to the bash, use this to clean up any changes you don't want.
 - `gs`
   - `git status`
 - `ga`
@@ -59,6 +70,27 @@ You have the option for it to be `code` or `WHATEVER_YOU_ENTER`
 
 - To use, enter `code FILE_NAME`
 - Can also be a `dir/`, will open the folder in VC Code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Setup Script
 
