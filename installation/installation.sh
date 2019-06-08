@@ -16,6 +16,8 @@ printf "\n\nInstalling HomeBrew \n\n ..."
 printf "\n\n"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+
+
 # Node Version Manager
 printf "\n\n Installing Node Version Manager \n \n ... \n"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
@@ -74,6 +76,9 @@ sudo -u $username brew install awscli aws-sam-cli
 printf "\n Configuring the AWS CLI"
 printf "\n\n"
 aws configure
+
+# Postman
+# https://dl.pstmn.io/download/latest/osx
 
 ######### Optional Configurations ##########
 

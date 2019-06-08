@@ -20,19 +20,24 @@ function gitlog() {
 }
 
 # accessing the bash
-alias edit-bash="subl ~/.bash_profile"
+alias edit-bash="code ~/.bash_profile"
+
+# Checking temp
+alias temp="~/Documents/osx-cpu-temp/osx-cpu-temp"
 
 # git shortcuts
 alias gs="git status"
 alias ga="git add ."
 alias gp="git push"
-alias gc="git commit -c"
+alias gc="git commit -m"
 
-# JS
+# AWS
+alias user-pools="aws cognito-idp list-user-pools --max-results 10"
+alias id-pools="aws cognito-identity list-identity-pools --max-results 10"
+
+# Vue
 alias activate-skynet="npm run serve"
-
-# Default Editor
-export EDITOR="code"
+alias v-unit-test="npm run test:unit"
 
 # source in bash git syntax aware colors into bash profile
 source ~/.bash_git_autocomplete
