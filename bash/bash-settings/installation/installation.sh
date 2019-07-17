@@ -83,9 +83,6 @@ function aws-cli(){
 	aws configure
 }
 
-
-
-
 ############################################
 ######### Optional Configurations ##########
 ############################################
@@ -135,7 +132,6 @@ function react-cli(){
 		exit 0
 	fi
 }
-
 
 printf "\n\nAll done!"
 printf "\n"
