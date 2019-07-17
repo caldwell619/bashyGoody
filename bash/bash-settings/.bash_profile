@@ -1,6 +1,16 @@
 echo "Skynet is active"
 
 ##################################### 
+###########   AWS       ############# 
+##################################### 
+
+# Start local DynamoDB
+alias dynamo-start="docker run -p 8000:8000 amazon/dynamodb-local"
+
+# View local tables
+alias dynamo-local-tables="aws dynamodb list-tables --endpoint-url http://localhost:8000"
+
+##################################### 
 ###########   GIT       ############# 
 ##################################### 
 
@@ -10,6 +20,33 @@ alias ga="git add ."
 alias gp="git push"
 alias gc="git commit -m"
 alias auth="chmod +x"
+
+##################################### 
+###  Bootstrapping Express / React ##
+##################################### 
+
+function express-init() {
+    echo 'hello'
+    source ~/.git_bash_express
+}
+
+
+##################################### 
+##########   Babel       ############
+##################################### 
+
+function webpack-config() {
+    npm install --save-dev \
+        webpack \
+        @babel/core \
+        @babel/preset-env \
+        babel-loader \
+        babel-polyfill \
+        webpack-cli \
+        @babel/preset-stage-0
+}
+
+alias electron-babel="babel-preset-electron@1.4.15"
 
 ##################################### 
 ########   Navigating       #########
@@ -50,10 +87,24 @@ alias v-test="npm run test:unit"
 alias mkt-ui="cd ~/Documents/job-code/mkt-web-ui/ && activate-skynet"
 alias add-tests="vue add @vue/cli-plugin-unit-jest"
 
+# React
+alias cra="npx create-react-app"
+
 
 ##################################### 
 ########      Util          #########
 ##################################### 
+
+# Move markdown to docx
+function convert-docx() {
+    pandoc -o output.docx -f markdown -t docx $1.md
+}
+
+# Edit Bash
+alias edit-bash="code ~/.bash_profile"
+
+# Refresh Bash
+alias refresh="source ~/.bash_profile"
 
 # Zipping
 function zip-del() {
@@ -67,7 +118,6 @@ function zip-update() {
 function jcurl() {
     curl "$@" | json | pygmentize -l json
 }
-
 
 ##################################### 
 #######   Exports       ############# 
