@@ -1,0 +1,5 @@
+{
+  "hooks": {
+    "post-commit": "sh ./hook-scripts/trial.sh"
+  }
+}
