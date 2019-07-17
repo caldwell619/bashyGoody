@@ -1,0 +1,22 @@
+{
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.colorTheme": "Monokai",
+	"editor.fontSize": 16,
+	"git.enableSmartCommit": true,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": false,
+	"editor.tabSize": 2,
+	"files.autoSave": "afterDelay",
+	"prettier.useTabs": true,
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+	"window.zoomLevel": 0,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"prettier.eslintIntegration": true,
+	"cSpell.userWords": ["dynamodb", "vuetify"],
+	"markdownlint.config": {
+		"default": true,
+		"MD024": false
+	}
+}
