@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
 printf "Welcome!\n\nThis script updates your bash profile with some shortcuts, and a syntax git prompt."
+printf "\n\nThis tool installs:"
+printf "\n   - Xcode"
+printf "\n   - Sublime"
+printf "\n   - VS Code"
+printf "\n   - Postman"
+printf "\n   - Docker"
+printf "\n\n"
 
 function xcode(){
   printf "\n\nInstalling X-Code tools.\nThis includes git."
@@ -129,11 +136,18 @@ function postman(){
   
   mkdir ~/temp
   printf "\n\nDownloading Postman.."
-  curl -sf -L https://dl.pstmn.io/download/latest/osx -o ~/temp/postman.dmg
-  printf "\n\nCopying to Applications/.."
+  # curl -sf -L https://dl.pstmn.io/download/latest/osx -o ~/temp/postman.zip
+  # Mount the .dmg
+  printf "\n\nUnzipping the installation file.."
   printf "\n\n"
-  ls ~/temp
-  # cp -R ~/temp/ /Applications/
+  unzip -q ~/temp/postman.zip -d ~/temp/
+
+  # Cp the .app to /Applications
+  printf "\n\nInstalling to Applications/.."
+  printf "\n\n"
+  cp -R ~/temp/Postman.app /Applications/
+  rm -r ~/temp
+  printf "\n\nDone! Moving on.."
 }
 
 function editor(){
@@ -177,4 +191,11 @@ function docker(){
   printf "\n\nDone!"
 }
 
-
+# uncomment any software you want to download
+# xcode
+# update_settings
+# sublime
+# vs_code
+# postman
+# editor
+# docker
