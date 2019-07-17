@@ -12,7 +12,7 @@ function yes_no(){
 printf "\nBeginning installations..."
 
 # HomeBrew
-function home-brew(){
+function homebrew(){
 	printf "\n\nInstalling HomeBrew \n\n ..."
 	printf "\n\n"
 	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -43,11 +43,12 @@ function node(){
 	printf "\n\n Installing Node v8.10 \n\n ..."
 	printf "\n"
 	nvm install 8.10
+	nvm use 8.10
 }
 
 ### Vue
 # Asking for confimation
-function vue-cli(){
+function vue_cli(){
 	printf "\nDo you want to install the Vue CLI? [y/n] -> "
 	read vueAnswer
 
@@ -65,7 +66,7 @@ function vue-cli(){
 }
 
 # AWS and SAM CLI
-function aws-cli(){
+function aws_cli(){
 	printf "\n\nThe following is the logged in user."
 	printf "\n\n"
 	logname
@@ -115,14 +116,14 @@ function github(){
 }
 
 # React CLI
-function react-cli(){
+function react_cli(){
 	# Asking for confirmation
 	printf "\n\nDo you want to install the React CLI? [y/n] -> "
 	read reactAnswer
 
 	yes_no $reactAnswer
 
-	if [ $? == 0]
+	if [ $? == 0 ]
 	then 
 	printf "\n\nOkay, installing the React tools"
 	npm install -g create-react-app
@@ -133,8 +134,16 @@ function react-cli(){
 	fi
 }
 
+# homebrew
+# nvm
+# node
+# aws_cli
+vue_cli
+react_cli
+
+
 printf "\n\nAll done!"
-printf "\n"
+printf "\n\n"
 exit 0
 
 

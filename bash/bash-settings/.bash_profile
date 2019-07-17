@@ -25,7 +25,7 @@ alias auth="chmod +x"
 ###  Bootstrapping Express / React ##
 ##################################### 
 
-function express-init() {
+function express_init() {
     echo 'hello'
     source ~/.git_bash_express
 }
@@ -35,7 +35,7 @@ function express-init() {
 ##########   Babel       ############
 ##################################### 
 
-function webpack-config() {
+function webpack_config() {
     npm install --save-dev \
         webpack \
         @babel/core \
@@ -96,7 +96,7 @@ alias cra="npx create-react-app"
 ##################################### 
 
 # Move markdown to docx
-function convert-docx() {
+function convert_docx() {
     pandoc -o output.docx -f markdown -t docx $1.md
 }
 
@@ -107,10 +107,10 @@ alias edit-bash="code ~/.bash_profile"
 alias refresh="source ~/.bash_profile"
 
 # Zipping
-function zip-del() {
+function zip_del() {
     zip -m $1 $@
 }
-function zip-update() {
+function zip_update() {
     zip -u -m $1 $2
 }
 

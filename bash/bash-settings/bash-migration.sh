@@ -192,10 +192,10 @@ function docker(){
 }
 
 # uncomment any software you want to download
-# xcode
-# update_settings
-# sublime
-# vs_code
-# postman
-# editor
+ xcode
+ update_settings
+ sublime
+ vs_code
+ postman
+ editor
 # docker
