@@ -1,0 +1,28 @@
+{
+	"Print to console": {
+		"prefix": "log",
+		"body": ["console.log('$1');", "$2"],
+		"description": "Log output to console"
+	},
+	"Add Proper Link Attributes": {
+		"prefix": "no-rel",
+		"body": ["href=\"$1\" target=\"_blank\" rel=\"noreferrer noopener\""],
+		"description": "Adds proper attributes to prevent malicious redirect"
+	},
+	"Testing Scaffold": {
+		"prefix": "desc",
+		"body": [
+			"describe(\"$1\", () => {",
+			"\tit(\"$2\", () => {",
+			"\t\texpect().toBe();",
+			"\t});",
+			"});"
+		],
+		"description": "Creates skeleton of Jest testing syntax"
+	},
+	"Test Block": {
+		"prefix": "test",
+		"body": ["it(\"$2\", () => {", "\t\texpect().toBe();", "\t});"],
+		"description": "Creates a single test block inside of a describe with jest syntax"
+	}
+}
