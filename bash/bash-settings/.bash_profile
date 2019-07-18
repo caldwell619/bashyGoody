@@ -1,5 +1,20 @@
 echo "Skynet is active"
 
+# Colors
+
+Color_Off="\033[0m"       # Text Reset
+# Bold High Intensty
+BIBlack="\033[1;90m"      # Black
+BIRed="\033[1;91m"        # Red
+BIGreen="\033[1;92m"      # Green
+BIYellow="\033[1;93m"     # Yellow
+BIBlue="\033[1;94m"       # Blue
+BIPurple="\033[1;95m"     # Purple
+BICyan="\033[1;96m"       # Cyan
+BIWhite="\033[1;97m"      # White
+
+# Template to color something: $BICyan$(echo "$1")$Color_Off
+
 ##################################### 
 ###########   AWS       ############# 
 ##################################### 
@@ -58,17 +73,24 @@ function goto() {
 }
 
 # list aliases
+#  $BICyan$(echo "$1")$Color_Off
 function list() {
-    printf "\n\nadd-tests: Install the Vue test utils"
-    printf "\n\nv-test: runs unit tests"
-    printf "\n\nzip-update: 1st arg is the folder to be updated, 2nd is the file(s) being added"
-    printf "\n\nzip-del: zips and deletes the files zipped, 2 args - same as update"
-    printf "\n\njcurl: curls url and prints it pretty"
+    # JS
+    printf "\n\n$BIGreen$(echo "add-tests:")$Color_Off Install the Vue test utils"
+    printf "\n\n$BIYellow$(echo "webpack-config:")$Color_Off Saves all dev dependencies needed for inclusion of webpack"
+    printf "\n\n$BICyan$(echo "cra:")$Color_Off Create-react-app alias"
+    printf "\n\n$BIRed$(echo "express-init")$Color_Off Creates a bootstrapped Express server"
+    # Utility
+    printf "\n\n$BIYellow$(echo "zip-update")$Color_Off 1st arg is the folder to be updated, 2nd is the file(s) being added"
+    printf "\n\n$BIPurple$(echo "zip-del:")$Color_Off zips and deletes the files zipped, 2 args - same as update"
+    printf "\n\n$BIYellow$(echo "jcurl:")$Color_Off curls url and prints it pretty"
+    printf "\n\n$BIBlue$(echo "convert-docx:")$Color_Off Converts markdown to docx"
+    # AWS
+    printf "\n\n$BICyan$(echo "dynamo-start:")$Color_Off Starts DynamoDB running locally in a docker container"
+    printf "\n\n$BICyan$(echo "dynamo-local-tables:")$Color_Off Lists local DynamoDB tables"
+    printf "\n\n$BIRed$(echo "user-pools:")$Color_Off Lists AWS Cognito user pools"
+    printf "\n\n"
 }
-
-# Getting to projects
-alias mk-api="cd ~/Documents/job-code/mkt-web-api"
-alias mk-ui="cd ~/Documents/job-code/mkt-web-ui"
 
 ##################################### 
 ########   Development       ########
@@ -82,9 +104,6 @@ alias user-pools="aws cognito-idp list-user-pools --max-results 10"
 alias id-pools="aws cognito-identity list-identity-pools --max-results 10"
 
 # Vue
-alias activate-skynet="npm run serve"
-alias v-test="npm run test:unit"
-alias mkt-ui="cd ~/Documents/job-code/mkt-web-ui/ && activate-skynet"
 alias add-tests="vue add @vue/cli-plugin-unit-jest"
 
 # React
