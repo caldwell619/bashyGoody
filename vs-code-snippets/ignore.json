@@ -1,0 +1,34 @@
+{
+	"Basic .gitignore": {
+		"prefix": "basic",
+		"description": "Skeleton .gitignore covering all the basics of a node project",
+		"body": [
+			"# Node",
+			"node_modules",
+			"dist/",
+			"build/",
+			"",
+			"# Mac OS",
+			".DS_Store",
+			"",
+			"# Local env Files",
+			".env.local",
+			".env.*.local",
+			"",
+			"# Log Files",
+			"npm-debug.log*",
+			"yarn-debug.log*",
+			"yarn-error.log*",
+			"",
+			"# Editor directories and files",
+			".idea",
+			".vscode",
+			".vs",
+			"*.suo",
+			"*.ntvs*",
+			"*.njsproj",
+			"*.sln",
+			"*.sw?"
+		]
+	}
+}
