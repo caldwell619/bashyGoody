@@ -24,5 +24,17 @@
 		"prefix": "test",
 		"body": ["it(\"$2\", () => {", "\t\texpect().toBe();", "\t});"],
 		"description": "Creates a single test block inside of a describe with jest syntax"
+	},
+	"Cors Headers": {
+		"prefix": "headers",
+		"body": [
+			"const headers = {",
+			"\t\"Access-Control-Allow-Headers\": \"*\",",
+			"\t\"Access-Control-Allow-Origin\": \"*\",",
+			"\t\"Access-Control-Allow-Methods\": \"*\",",
+			"\t\"Content-Type\": \"application/json\",",
+			"};"
+		],
+		"description": "Skeleton headers for lambda use"
 	}
 }
