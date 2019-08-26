@@ -1,0 +1,11 @@
+{
+	"Pug Template": {
+		"prefix": "pug",
+		"body": [
+			"<template lang='pug'>",
+			"\t$1",
+			"</template>"
+		],
+		"description": "template skeleton with pug syntax"
+	}
+}
