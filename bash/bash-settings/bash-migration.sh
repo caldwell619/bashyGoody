@@ -171,7 +171,7 @@ function editor(){
 
 function docker(){
   printf "\n\nDownloading Docker.."
-  # curl -sf -L https://download.docker.com/mac/stable/Docker.dmg -o ~/temp/docker.dmg
+  curl -sf -L https://download.docker.com/mac/stable/Docker.dmg -o ~/temp/docker.dmg
 
   # Mount the .dmg
   printf "\n\nMounting the disk image.."
