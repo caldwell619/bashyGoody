@@ -21,6 +21,7 @@ function homebrew(){
 # Node Version Manager
 function nvm(){
 	printf "\n\n Installing Node Version Manager \n \n ... \n"
+	mkdir ~/.nvm
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
 	echo
 	# Refreshing the bash
@@ -43,7 +44,8 @@ function node(){
 	printf "\n\n Installing Node v8.10 \n\n ..."
 	printf "\n"
 	nvm install 8.10
-	nvm use 8.10
+	nvm install 10.15.3
+	nvm use 10.15.3
 }
 
 ### Vue
@@ -134,12 +136,14 @@ function react_cli(){
 	fi
 }
 
-# homebrew
+
+
+homebrew
 # nvm
 # node
-# aws_cli
-vue_cli
-react_cli
+aws_cli
+# vue_cli
+# react_cli
 
 
 printf "\n\nAll done!"
