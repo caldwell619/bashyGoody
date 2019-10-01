@@ -7,5 +7,25 @@
 			"</template>"
 		],
 		"description": "template skeleton with pug syntax"
+	},
+	"Script Tag": {
+		"prefix": "script",
+		"body": [
+			"<script>",
+			"\texport default {",
+			"\t\t$1",
+			"\t}",
+			"</script>"
+		],
+		"description": "template for script tag"
+	},
+	"SASS style tag": {
+		"prefix": "style-sass",
+		"body": [
+			"<style lang='sass' scoped>",
+			"\t$1",
+			"</style>"
+		],
+		"description": "template for script tag"
 	}
 }
