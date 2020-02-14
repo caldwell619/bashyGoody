@@ -117,7 +117,7 @@ then
   sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/$vsCommand
 else
   vsCommand="code"
-  printf "\n\nOkay, creating symlink.\n\nUse `code FILENAME` to open the file in VS Code"
+  printf "\n\nOkay, creating symlink.\n\nUse 'code FILENAME' to open the file in VS Code"
   sudo ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
 fi
 
