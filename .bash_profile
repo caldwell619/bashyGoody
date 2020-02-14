@@ -45,10 +45,8 @@ alias user-pools="aws cognito-idp list-user-pools --max-results 10"
 alias id-pools="aws cognito-identity list-identity-pools --max-results 10"
 
 # Vue
-alias activate-skynet="npm run serve"
-alias v-test="npm run test:unit"
-alias mkt-ui="cd ~/Documents/job-code/mkt-web-ui/ && activate-skynet"
 alias add-tests="vue add @vue/cli-plugin-unit-jest"
+alias bootrap-vue-dependencies="npm i -D pug pug-plain-loader sass sass-loader"
 
 
 ##################################### 
